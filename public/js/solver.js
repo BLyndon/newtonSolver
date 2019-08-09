@@ -1,4 +1,4 @@
-import { reshape, size, column, multiply, concat, add, divide, resize } from 'mathjs';
+import { reshape, size, column, multiply, concat, resize } from 'mathjs';
 
 /** RK-Solver for Euler-Lagrange-eq. or Newton's eq. of motion.
  * n is the number of generalised coordinates X/velocities V.
@@ -16,7 +16,7 @@ function solRK(initialState, params, acceleration, numIterations, saveTrajectory
     var state = initialState;
 
     if (size(state)[1] === 1) {
-        var vector = true;
+        var stateIsVector = true;
         var n = (size(state)[0] - 1) / 2;
         var T = multiply(state[2 * n][0], [n, 1]);
         var time = state[2 * n][0]
@@ -24,7 +24,7 @@ function solRK(initialState, params, acceleration, numIterations, saveTrajectory
         concat(state, T);
     }
     else {
-        var vector = false;
+        var stateIsVector = false;
         var n = size(state)[0];
         var T = column(state, 2);
     }
@@ -34,7 +34,7 @@ function solRK(initialState, params, acceleration, numIterations, saveTrajectory
         if (saveTrajectory) trajectory.push([column(state, 0), i * dt]);
     }
 
-    if (vector) {
+    if (stateIsVector) {
         state = concat(column(state, 0), column(state, 1));
         reshape(state, [2 * n, 1]);
         state = resize(state, [2 * n + 1, 1], time)
