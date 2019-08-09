@@ -30,7 +30,7 @@ function solRK(initialState, params, acceleration, numIterations, saveTrajectory
     }
 
     for (let i = 0; i < numIterations; i++) {
-        state = step(state, params, dt);
+        state = step(state, params, acceleration, dt);
         if (saveTrajectory) trajectory.push([column(state, 0), i * dt]);
     }
 
