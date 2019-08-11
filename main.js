@@ -1,5 +1,5 @@
 /**
- * Example: Harmonic Oscillator
+ * Example: 2-dim. Harmonic Oscillator
  */
 
 var state = math.ones([2, 2]);
@@ -8,7 +8,7 @@ var t = 0;
 
 state[0][0] = 1;
 state[0][1] = -1;
-state[1][0] = 1;
+state[1][0] = 0;
 state[1][1] = -1;
 
 function acc(state, t, parameter) {
@@ -23,6 +23,7 @@ function acc(state, t, parameter) {
 
 [state, t] = solRK(state, t, parameter, acc, 1000);
 
+console.log("state: [X, V]");
 console.log(state);
 console.log("elapsed time: " + t + "s");
 
