@@ -10,9 +10,14 @@ function step(state, time, params, acceleration, dt = 0.001) {
     checkTypes(state, params, acceleration);
     checkShape(state);
     var n = math.size(state)[0];
-
+    if (typeof (math.column(state, 1)) === 'number') {
+        var V = math.reshape([math.column(state, 1)], [n, 1]);
+    }
+    else if (math.column(state, 1) instanceof Array) {
+        var V = math.reshape(math.column(state, 1), [n, 1]);
+    }
     var state1 = state;
-    var V1 = math.reshape([math.column(state, 1)], [n, 1]);;
+    var V1 = V;
     var T1 = time;
     var A1 = acceleration(state1, T1, params);
     var K1 = math.multiply(dt, math.concat(V1, A1, 1));
