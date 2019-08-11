@@ -21,7 +21,7 @@ function acc(state, t, parameter) {
     return a;
 }
 
-[state, t] = solRK(state, t, parameter, acc, 1000);
+[state, t] = solverRK(state, t, parameter, acc, 1000);
 
 console.log("state: [X, V]");
 console.log(state);

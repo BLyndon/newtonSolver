@@ -7,7 +7,7 @@
  * @param {number} numIterations number of steps
  * @param {number} dt timestep fixes time discretisation
  */
-function solRK(initialState, time, params, acceleration, numIterations, saveTrajectory = false, dt = 0.001) {
+function solverRK(initialState, time, params, acceleration, numIterations, saveTrajectory = false, dt = 0.001) {
     checkTypes(initialState, params, acceleration);
     checkShape(initialState);
 
