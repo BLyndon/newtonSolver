@@ -1,8 +1,9 @@
-/** Single Runge-Kutta step in time for Euler-Lagrange-eq or Newton's equation of motion.
+/**
  * n is the number of generalised coordinates X/velocities V.
  * state-matrix: [X, V] vertical stacked, i = 1 - n
- * @param {matrix} state matrix: shape = [n, 2]
- * @param {dictionary} params physical parameter, model parameters, external forces, etc.
+ * @param {array} initialState matrix: shape = [n, 2]
+ * @param {number} time
+ * @param {object} params physical parameter, model parameters, external forces, etc.
  * @param {function} acceleration acceleration(state = [n, 2]-matrix, time = number, params = dictionary)
  * @param {number} dt timestep fixes time discretisation
  */
