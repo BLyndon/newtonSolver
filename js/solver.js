@@ -1,8 +1,9 @@
-/** RK-Solver for Euler-Lagrange-eq. or Newton's eq. of motion.
+/** 
  * n is the number of generalised coordinates X/velocities V.
  * state-matrix: [X, V] vertical stacked, i = 1 - n
- * @param {matrix} initialState matrix: shape = [n, 2]
- * @param {dictionary} params physical parameter, model parameters, external forces, etc.
+ * @param {array} initialState matrix: shape = [n, 2]
+ * @param {number} time  
+ * @param {object} params physical parameter, model parameters, external forces, etc.
  * @param {function} acceleration acceleration(state = [n, 2]-matrix, time = number, params = dictionary)
  * @param {number} numIterations number of steps
  * @param {number} dt timestep fixes time discretisation
@@ -17,8 +18,8 @@ function solverRK(initialState, time, params, acceleration, numIterations, saveT
     var t = time;
 
     for (let i = 0; i < numIterations; i++) {
-        [state, t] = step(state, time, params, acceleration, dt);
-        if (saveTrajectory) trajectory.push([math.column(state, 0), t]);
+        [state, t] = step(state, t, params, acceleration, dt);
+        if (saveTrajectory) trajectory.push([t, math.column(state, 0)]);
     }
 
 
