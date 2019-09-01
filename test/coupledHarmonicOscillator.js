@@ -17,13 +17,19 @@ var parameter = {
     k1: 1,
     k2: 1
 };
+var initVal = {
+    x: 0,
+    y: 0,
+    dx: 1,
+    dy: 0
+};
 var t = 0;
 
-state[0][0] = 1;
-state[0][1] = -1;
+state[0][0] = initVal.x;
+state[1][0] = initVal.y;
 
-state[1][0] = 0;
-state[1][1] = -1;
+state[0][1] = initVal.dx;
+state[1][1] = initVal.dy;
 
 function acc(state, t, parameter) {
     let x = state[0][0];
@@ -37,8 +43,10 @@ function acc(state, t, parameter) {
     return a;
 }
 
-[state, elapsedTime] = solverRK(state, t, parameter, acc, 1000);
+[state, traj] = solverRK(state, t, parameter, acc, 1000, true, 0.01);
 
-console.log("state: (xi, vi)");
+console.log("state: [xi, vi]");
 console.log(state);
-console.log("elapsed time: " + elapsedTime + "s")
+console.log(traj);
+
+traj.forEach(item => document.write(item + "<br>"));
