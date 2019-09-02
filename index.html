@@ -2,24 +2,30 @@
 <html lang="">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title>Runge-Kutta solver for 2nd order ODE</title>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.0.4/math.js"></script>
-
-    <script src="js/utils.js"></script>
-    <script src="js/step.js"></script>
-    <script src="js/solver.js"></script>
-    <script src="test/coupledHarmonicOscillator.js"></script>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>Newton Solver</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.1/math.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+  <script src="js/wall.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/test_utils.js"></script>
+  <script src="js/mass.js"></script>
+  <script src="js/step.js"></script>
+  <script src="js/rubberband.js"></script>
+  <script src="js/sketch.js"></script>
 </head>
 
 <body>
-    <header>
-
-    </header>
+  <div>
+    <h2>Testing the Solver: Coupled Harmonic Oscilator</h2>
+    <p>Here the numerical solution is compared to the exact solution of the system. At the bottom of the page you find
+      an animation of both, the exact solution and the numerical solution. The x-coordinate describes the
+      position of the left mass and the right mass is described by the y-coordinate. After 100s the maximum error is
+      about 4e-8, as you can see in the following plot.</p>
+    <img src="data/error_coupled_HO.png" class="center">
+  </div>
 
 </body>
 
