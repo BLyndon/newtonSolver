@@ -8,6 +8,7 @@ Since equations of motion are (mostly) explicit 2nd order ODEs, the classical Ru
 Instead, second order ODEs can be reduced to first order ODEs to the cost of doubling the number of equations. Then, the Runge-Kutta can be applied to these systems of first order ODE.
 
 ## Test
+(A test on a more complex system and an animation can be found here: [coupled harmonic oscillator](https://blyndon.github.io/newtonSolver/))
 Consider the [harmonic oscillator](https://en.wikipedia.org/wiki/Harmonic_oscillator#Simple_harmonic_oscillator) with unit eigenfrequency and initial values y(0) = 1, y'(0)=-1. The error is shown in the figure below.
 
 ![alt text](data/error.png "plot")
