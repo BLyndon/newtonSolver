@@ -43,10 +43,12 @@ function acc(state, t, parameter) {
     return a;
 }
 
-[state, traj] = solverRK(state, t, parameter, acc, 1000, true, 0.01);
+[state, traj] = solverRK(state, t, parameter, acc, 10000, true, 0.01);
+
 
 console.log("state: [xi, vi]");
 console.log(state);
 console.log(traj);
 
 traj.forEach(item => document.write(item + "<br>"));
+
