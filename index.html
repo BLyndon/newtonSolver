@@ -8,6 +8,8 @@
   <title>Newton Solver</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/6.2.1/math.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+  <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
   <script src="js/wall.js"></script>
   <script src="js/utils.js"></script>
   <script src="js/test_utils.js"></script>
@@ -19,11 +21,27 @@
 
 <body>
   <div>
-    <h2>Testing the Solver: Coupled Harmonic Oscilator</h2>
-    <p>Here the numerical solution is compared to the exact solution of the system. At the bottom of the page you find
-      an animation of both, the exact solution and the numerical solution. The x-coordinate describes the
-      position of the left mass and the right mass is described by the y-coordinate. After 100s the maximum error is
-      about 4e-8, as you can see in the following plot.</p>
+    <h1>Runge-Kutta Solver for Equations of Motion</h1>
+    <p>Solver for n-dimensional explicit 2nd order ODEs, e.g. mechanical equations of motion with n degrees of
+      freedom.</p>
+  </div>
+  <div>
+    <h2>Testing the Solver: Coupled Harmonic Oscillator</h2>
+    <p>Here the numerical solution is compared to the exact solution of the system. At the bottom you find
+      an animation of both, the exact solution and the numerical solution. <br><br>
+      The x-coordinate describes the position of the left mass and the right mass is described by the y-coordinate. The
+      acceleration for this specific problem is given below.
+      <script src="https://gist.github.com/BLyndon/18ecb997b411d2eaf88f5176e41a0610.js"></script>
+      <!-- The equation of motion is given by
+      $$\begin{pmatrix} \ddot x \\\ \ddot y \end{pmatrix} = \frac{1}{m}\left( \begin{matrix} -(k1+k2) & k2 \\\ k2 &
+      -(k1+k2)
+      \end{matrix} \right) \begin{pmatrix} x \\\ y \end{pmatrix}$$.
+      For the initial conditions \(x(0) = y(0) = \dot y (0) = 0, \dot x(0) = 1\) and \(k1=k2=m=1\), the exact solution
+      is given by
+      $$x(t) = \frac{\sin (t)}{2}+\frac{\sin \left(\sqrt{5}
+      t\right)}{2 \sqrt{5}}, \\ y(t) = \frac{\sin (t)}{2}+\frac{\sin \left(\sqrt{5}
+      t\right)}{2 \sqrt{5}}.$$ -->
+      After 100s the maximum error is about 4e-8, as you can see in the following plot.</p>
     <img src="data/error_coupled_HO.png" class="center">
   </div>
 
