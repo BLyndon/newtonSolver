@@ -111,3 +111,13 @@
         text-align: left;
         padding: 8px;
     }
+
+    .gist {
+        max-width:100%;
+        overflow:auto;  
+    }
+
+    .gist .blob-wrapper.data {
+        max-height:200px;
+        overflow:auto;
+    }
